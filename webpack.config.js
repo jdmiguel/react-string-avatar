@@ -1,78 +1,35 @@
-/*
-    ./webpack.config.js
-*/
-
-/*
-const path = require('path');
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/react-string-avatar.js',
   output: {
-    path: path.resolve('dist'),
-    filename: 'index_bundle.js'
+    filename: './dist/react-string-avatar.min.js'
   },
-  module: {
-    loaders: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
+  module:{
+    rules:[
+
+      /*
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: 'babel-loader'
+      },
+      */
+
+      /* SASS LOADERS
+      {
+          test: /\.scss$/,
+          use: [
+              "style-loader", // creates style nodes from JS strings
+              "css-loader", // translates CSS into CommonJS
+              "sass-loader" // compiles Sass to CSS
+          ]
+      }
+      */
+     
+      /* FILE LOADER
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        use: "file-loader"
+      }*/
     ]
   }
 }
-*/
-
-
-
-
-
-/* 
-    ./webpack.config.js
-*/
-const path = require('path');
-
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: './src/index.html',
-  filename: 'index.html',
-  inject: 'body'
-})
-
-
-
-
-module.exports = {
-  entry: './src/index.js',
-  output: {
-    path: path.resolve('dist'),
-    filename: 'index_bundle.js'
-  },
-  module: {
-    loaders: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
-    ]
-  },
-
-  plugins: [HtmlWebpackPluginConfig]
-}
-
-
-
-
-
-/*
-
-
-
-module.exports = {
-
-...
-
-module: {
-    loaders: [
-        ...
-    ]
-},
-// add this line
-plugins: [HtmlWebpackPluginConfig]
-}
-
-*/
